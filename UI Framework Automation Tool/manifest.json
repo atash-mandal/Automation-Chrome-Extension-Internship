@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "UI Framework Automation",
+    "version": "1.0.1",
+    "author": "atash.mandal@hpe.com",  
+    "action": {
+        "default_icon": "logo//icon_16.png",
+        "default_title": "UI Framework Automation"
+    },
+    "icons": {
+        "128": "logo//icon_128.png",
+        "16": "logo//icon_16.png",
+        "48": "logo//icon_48.png",
+        "64": "logo//icon_64.png"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content_scripts/contentscript.js",
+                "content_scripts/getSelector.js",
+                "content_scripts/selectors/data_selector.js",
+                "content_scripts/selectors/class_selector.js",
+                "content_scripts/selectors/id_selector.js",
+                "content_scripts/selectors/xpath_selector.js",
+                "content_scripts/selectors/element_index.js",
+                "content_scripts/evaluators/evaluate_id.js",
+                "content_scripts/evaluators/evaluate_data.js",
+                "content_scripts/evaluators/evaluate_class.js",
+                "content_scripts/evaluators/evaluate_xpath.js"]
+    }],
+    "host_permissions": ["*://*/*"],
+    "permissions": ["storage","scripting","tabs","activeTab","downloads","debugger"]
+  }
